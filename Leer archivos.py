@@ -16,4 +16,4 @@ while i < len(contenido):
     print(contenido[i])
     i+=1
 
-orint("Terminado")
+print("Terminado")
