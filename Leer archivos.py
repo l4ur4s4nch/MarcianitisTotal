@@ -5,7 +5,7 @@ print("Ejercicio: leer archivos")
 
 #contenidoArchivo = archivoTexto.read()
 #print(contenidoArchivo)
-
+'''
 print(open("marcianitos.txt").read())
 contenido = open("marcianitos.txt").readlines()
 #print(contenido[1])
@@ -18,3 +18,4 @@ while i < len(contenido):
 
 print("Terminado")
 print("Ahora si está terminado")
+'''
