@@ -1,3 +1,5 @@
 Hello World!
 My name is Alejandro
 Pleased to meet you
+
+personaje player.png
