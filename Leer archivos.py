@@ -19,5 +19,3 @@ while i < len(contenido):
 print("Terminado")
 print("Ahora si está terminado")
 '''
-print("Hacer commit")
-print("Hacer pull")
