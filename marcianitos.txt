@@ -4,4 +4,4 @@ Pleased to meet you
 
 personaje player.png
 
-prueba
+prueba 2
