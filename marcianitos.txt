@@ -1,12 +1,11 @@
-nave SpaceshipAlive.png
-nave_muerta SpaceshipDead.png
-
-marcianito1_00 Alien1_00.png
-marcianito1_01 Alien1_01.png
-marcianito2_00 Alien2_00.png
-marcianito2_01 Alien2_01.png
-marcianito3_00 Alien3_00.png
-marcianito3_01 Alien3_01.png
-nave_nodriza BigEnemy.png
-
-fondo Background.png
+IMPORTANTE NO DEJAR LÍNEAS EN BLANCO
+nave Images_MarcianitisTotal/SpaceshipAlive.png
+nave_muerta Images_MarcianitisTotal/SpaceshipDead.png
+marcianito1_00 Images_MarcianitisTotal/Alien1_00.png
+marcianito1_01 Images_MarcianitisTotal/Alien1_01.png
+marcianito2_00 Images_MarcianitisTotal/Alien2_00.png
+marcianito2_01 Images_MarcianitisTotal/Alien2_01.png
+marcianito3_00 Images_MarcianitisTotal/Alien3_00.png
+marcianito3_01 Images_MarcianitisTotal/Alien3_01.png
+nave_nodriza Images_MarcianitisTotal/BigEnemy.png
+fondo Images_MarcianitisTotal/Background.png
