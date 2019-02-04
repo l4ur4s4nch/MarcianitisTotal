@@ -1,7 +1,12 @@
-Hello World!
-My name is Alejandro
-Pleased to meet you
+nave SpaceshipAlive.png
+nave_muerta SpaceshipDead.png
 
-personaje player.png
+marcianito1_00 Alien1_00.png
+marcianito1_01 Alien1_01.png
+marcianito2_00 Alien2_00.png
+marcianito2_01 Alien2_01.png
+marcianito3_00 Alien3_00.png
+marcianito3_01 Alien3_01.png
+nave_nodriza BigEnemy.png
 
-prueba 2
+fondo Background.png
