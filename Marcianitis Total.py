@@ -69,14 +69,30 @@ while i < longitud_archivo:
     elif elemento_archivo[0] == "marcianito1_00":
         marcianito1_00_img = pygame.image.load(elemento_archivo[1])
 
-    elif elemento_archivo[0] == "marcianito2_00":
-        marcianito2_00_img = pygame.image.load(elemento_archivo[1])
+        marcianito1_00_img = pygame.transform.scale(marcianito1_00_img, (64, 64))
+
+        marcianito1_00_w, marcianito1_00_h = marcianito1_00_img.get_rect().size[0], marcianito1_00_img.get_rect().size[1]
 
     elif elemento_archivo[0] == "marcianito2_00":
         marcianito2_00_img = pygame.image.load(elemento_archivo[1])
+
+        marcianito2_00_img = pygame.transform.scale(marcianito2_00_img, (64, 64))
+
+        marcianito2_00_w, marcianito2_00_h = marcianito2_00_img.get_rect().size[0], marcianito2_00_img.get_rect().size[1]
+
+    elif elemento_archivo[0] == "marcianito3_00":
+        marcianito3_00_img = pygame.image.load(elemento_archivo[1])
+
+        marcianito3_00_img = pygame.transform.scale(marcianito3_00_img, (64, 64))
+
+        marcianito3_00_w, marcianito3_00_h = marcianito3_00_img.get_rect().size[0], marcianito3_00_img.get_rect().size[1]
 
     elif elemento_archivo[0] == "nave_nodriza":
         nave_nodriza_img= pygame.image.load(elemento_archivo[1])
+
+        nave_nodriza_img = pygame.transform.scale(nave_nodriza_img, (64, 64))
+
+        nave_nodriza_w, nave_nodriza_h = nave_nodriza_img.get_rect().size[0], nave_nodriza_img.get_rect().size[1]
 
     elif elemento_archivo[0] == "fondo":
         fondo_img= pygame.image.load(elemento_archivo[1])
@@ -85,15 +101,53 @@ while i < longitud_archivo:
 
     i+=1
 
+end_game = False
+nave_x = 0
+mar_x = 0
+nodriza_x = 0
+direccion_mar = 1
+
 #Bucle del juego
-while True:
+while not end_game:
+
+    #Cada cuanto se refesca
+    fpsClock.tick(30)
+
+    #Obtener todos los eventos que recibe pygame
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            end_game = True
+
+    #Crear una lista con todas las teclas presionadas
+    keys = pygame.key.get_pressed()
+    #Movimiento de la nave
+    if keys[pygame.K_LEFT]:
+        nave_x -= 5
+        if nave_x <= 0:
+            nave_x = 0
+    if keys[pygame.K_RIGHT]:
+        nave_x += 5
+        if nave_x >= width - nave_w:
+            nave_x = width - nave_w
+
+    #Movimiento marcianitos
+    if mar_x < 0 or mar_x > width - marcianito1_00_w:
+        direccion_mar *= -1
+
+    mar_x += 2 * direccion_mar
+
+    #Movimiento nodriza
+    nodriza_x += 4 * direccion_mar
+
     #Cargar el fondo de la pantalla
     screen.blit(fondo_img, (0, 0))
 
 
     #Cargar imágenes por pantalla
-    screen.blit(nave_nodriza_img, (0, 0))
-    screen.blit(nave_img, (width - nave_w, height - nave_w))
+    screen.blit(nave_nodriza_img, (nodriza_x, 0))
+    screen.blit(nave_img, (nave_x, height - nave_h))
+    screen.blit(marcianito1_00_img, (mar_x, 120))
 
     pygame.display.update()
-    fpsClock.tick(30)
+
+pygame.quit()
