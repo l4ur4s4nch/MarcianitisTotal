@@ -23,6 +23,7 @@ print("Ahora si está terminado")
 #Para usar pygame es necesario instalarlo con anterioridad
 import pygame
 from pygame.locals import *
+import random
 
 #Inicializar pygame, y el contador de fps
 pygame.init()
@@ -67,6 +68,8 @@ while i < longitud_archivo:
         nave_w, nave_h = nave_img.get_rect().size[0], nave_img.get_rect().size[1]
 
     elif elemento_archivo[0] == "marcianito1_00":
+        mar_1 = elemento_archivo[1]
+
         marcianito1_00_img = pygame.image.load(elemento_archivo[1])
 
         marcianito1_00_img = pygame.transform.scale(marcianito1_00_img, (64, 64))
@@ -74,6 +77,8 @@ while i < longitud_archivo:
         marcianito1_00_w, marcianito1_00_h = marcianito1_00_img.get_rect().size[0], marcianito1_00_img.get_rect().size[1]
 
     elif elemento_archivo[0] == "marcianito2_00":
+        mar_2 = elemento_archivo[1]
+
         marcianito2_00_img = pygame.image.load(elemento_archivo[1])
 
         marcianito2_00_img = pygame.transform.scale(marcianito2_00_img, (64, 64))
@@ -81,6 +86,8 @@ while i < longitud_archivo:
         marcianito2_00_w, marcianito2_00_h = marcianito2_00_img.get_rect().size[0], marcianito2_00_img.get_rect().size[1]
 
     elif elemento_archivo[0] == "marcianito3_00":
+        mar_3 = elemento_archivo[1]
+
         marcianito3_00_img = pygame.image.load(elemento_archivo[1])
 
         marcianito3_00_img = pygame.transform.scale(marcianito3_00_img, (64, 64))
@@ -101,10 +108,24 @@ while i < longitud_archivo:
 
     i+=1
 
+#LISTA MARCIANOS
+lista_mar = []
+posiciones = []
+
+ini_x, ini_y = 64, 50
+cur_x, cur_y = ini_x, ini_y
+for x in range (0, 5):
+    lista_mar.append(pygame.image.load(mar_1))
+    lista_mar[x] = pygame.transform.scale(lista_mar[x], (64, 64))
+    posiciones.append((cur_x, cur_y))
+    cur_x += lista_mar[x].get_rect().size[0]+5
+
+
 end_game = False
 nave_x = 0
 mar_x = 0
-nodriza_x = 0
+nodriza_x = -nave_nodriza_w
+mov_nodriza = False
 direccion_mar = 1
 
 #Bucle del juego
@@ -137,13 +158,25 @@ while not end_game:
     mar_x += 2 * direccion_mar
 
     #Movimiento nodriza
-    nodriza_x += 4 * direccion_mar
+
+    if mov_nodriza:
+        nodriza_x += 4
+    else:
+        if random.randint(1, 100) % 50 == 0:
+            mov_nodriza = True
 
     #Cargar el fondo de la pantalla
     screen.blit(fondo_img, (0, 0))
 
 
     #Cargar imágenes por pantalla
+
+    for x in range (0, len(lista_mar)):
+        screen.blit(lista_mar[x], posiciones[x])
+
+
+
+
     screen.blit(nave_nodriza_img, (nodriza_x, 0))
     screen.blit(nave_img, (nave_x, height - nave_h))
     screen.blit(marcianito1_00_img, (mar_x, 120))
