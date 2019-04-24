@@ -161,6 +161,9 @@ while not end_game:
 
     if mov_nodriza:
         nodriza_x += 4
+        if nodriza_x > width:
+            nodriza_x = -nave_nodriza_w
+            mov_nodriza = False
     else:
         if random.randint(1, 100) % 50 == 0:
             mov_nodriza = True
@@ -171,9 +174,15 @@ while not end_game:
 
     #Cargar imágenes por pantalla
 
-    for x in range (0, len(lista_mar)):
-        screen.blit(lista_mar[x], posiciones[x])
+    #Movimiento todos los marcianos
+    for i in range (0, len(lista_mar)):
+        screen.blit(lista_mar[i], posiciones[i])
 
+
+
+        x, y = posiciones[i]
+        x = x+1
+        posiciones[i] = x, y
 
 
 
