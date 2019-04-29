@@ -8,4 +8,4 @@ marcianito2_01 Images_MarcianitisTotal/Alien2_01.png
 marcianito3_00 Images_MarcianitisTotal/Alien3_00.png
 marcianito3_01 Images_MarcianitisTotal/Alien3_01.png
 nave_nodriza Images_MarcianitisTotal/BigEnemy.png
-fondo Images_MarcianitisTotal/Background.png
+fondu Images_MarcianitisTotal/Background.png
